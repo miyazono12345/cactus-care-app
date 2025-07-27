@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌵 サボテン管理アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌵 サボテン管理アプリ</h1>
+            <p>あなたのサボテンの健康管理をサポートします</p>
+        </header>
+
+        <main>
+            <!-- 通知エリア -->
+            <div id="notifications" class="notifications"></div>
+
+            <!-- サボテン追加フォーム -->
+            <section class="add-section">
+                <h2>新しいサボテンを追加</h2>
+                <form id="cactusForm">
+                    <div class="form-group">
+                        <label for="name">サボテンの名前:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="species">種類:</label>
+                        <select id="species" name="species" onchange="handleSpeciesChange()">
+                            <option value="">種類を選択...</option>
+                            <option value="ギムノカリキウム">ギムノカリキウム</option>
+                            <option value="エキノプシス">エキノプシス</option>
+                            <option value="マミラリア">マミラリア</option>
+                            <option value="アストロフィツム">アストロフィツム</option>
+                            <option value="フェロカクタス">フェロカクタス</option>
+                            <option value="オプンチア">オプンチア</option>
+                            <option value="ハオルチア">ハオルチア</option>
+                            <option value="サンセベリア">サンセベリア</option>
+                            <option value="カスタム">カスタム（手動入力）</option>
+                        </select>
+                    </div>
+
+                    <div id="customSettings" class="custom-settings" style="display: none;">
+                        <div class="form-group">
+                            <label for="wateringInterval">水やり間隔（日）:</label>
+                            <input type="number" id="wateringInterval" name="wateringInterval" min="1">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tempMin">最低温度（℃）:</label>
+                                <input type="number" id="tempMin" name="tempMin" step="0.1">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempMax">最高温度（℃）:</label>
+                                <input type="number" id="tempMax" name="tempMax" step="0.1">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="humidityMin">最低湿度（%）:</label>
+                                <input type="number" id="humidityMin" name="humidityMin" min="0" max="100">
+                            </div>
+                            <div class="form-group">
+                                <label for="humidityMax">最高湿度（%）:</label>
+                                <input type="number" id="humidityMax" name="humidityMax" min="0" max="100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastWatered">最後の水やり日:</label>
+                        <input type="date" id="lastWatered" name="lastWatered" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">サボテンを追加</button>
+                </form>
+            </section>
+
+            <!-- サボテン一覧 -->
+            <section class="cactus-list">
+                <h2>登録済みサボテン</h2>
+                <div id="cactusList" class="cactus-grid"></div>
+            </section>
+
+            <!-- 天気情報 -->
+            <section class="weather-section">
+                <h2>現在の環境</h2>
+                <div id="weatherInfo" class="weather-info">
+                    <p>位置情報を取得中...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

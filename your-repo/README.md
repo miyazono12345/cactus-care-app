@@ -7,7 +7,7 @@
 
 ## 🚀 デモ
 
-[**🌵 アプリを使ってみる**](https://miyazono12345.github.io/cactus-care-app/)
+[**🌵 アプリを使ってみる**](https://miyazono12345.github.io/cactus-care-app/your-repo)
 
 ## ✨ 機能
 
